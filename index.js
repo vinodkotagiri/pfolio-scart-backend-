@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser')
 
 const authRoutes = require('./routes/route.auth')
 const categoryRoutes = require('./routes/route.category')
+const productRoutes = require('./routes/route.product')
 // -----------------------------------------------------------------------------
 // CREATE AND SETUP EXPRESS APP
 // -----------------------------------------------------------------------------
@@ -31,7 +32,7 @@ app.use(cors())
 
 app.use('/auth', authRoutes)
 app.use('/category', categoryRoutes)
-
+app.use('/product', productRoutes)
 // -----------------------------------------------------------------------------
 // CONNECT THE DATABASE
 // -----------------------------------------------------------------------------
