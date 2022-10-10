@@ -10,6 +10,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 
 const authRoutes = require('./routes/route.auth')
+const userRoutes = require('./routes/route.user')
 const categoryRoutes = require('./routes/route.category')
 const productRoutes = require('./routes/route.product')
 // -----------------------------------------------------------------------------
@@ -31,6 +32,7 @@ app.use(cors())
 // -----------------------------------------------------------------------------
 
 app.use('/auth', authRoutes)
+app.use('/user', userRoutes)
 app.use('/category', categoryRoutes)
 app.use('/product', productRoutes)
 // -----------------------------------------------------------------------------
