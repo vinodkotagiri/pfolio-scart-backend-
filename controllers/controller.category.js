@@ -2,7 +2,7 @@ const Category = require('../models/model.category')
 
 exports.create = async (req, res) => {
 	const { name } = req.body
-
+	console.log(req.body)
 	//Check if category already exists
 	const check = await Category.findOne({ name: name.toLowerCase() })
 	if (check) return res.status(400).json({ error: 'Category already exists' })

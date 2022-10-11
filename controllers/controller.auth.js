@@ -38,7 +38,7 @@ exports.signup = async (req, res) => {
 exports.signin = async (req, res) => {
 	const { email, password } = req.body
 	//Find the user exists
-	const user = await User.findOne({ email }).lean()
+	const user = await User.findOne({ email: email.toLowerCase() }).lean()
 	if (!user) return res.status(400).json({ error: 'User doesnot exist' })
 	if (!(await bcrypt.compare(password, user.password)))
 		return res.status(400).json({ error: 'Password mismatch' })
@@ -58,6 +58,7 @@ exports.signin = async (req, res) => {
 			name: user.name,
 			email: user.email,
 			role: user.role,
+			history: user.history,
 		},
 	})
 }
